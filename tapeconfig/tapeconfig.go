@@ -30,17 +30,19 @@ titlewidth: %.1f
 	return fmt.Sprintf(format, t.Reel, t.ArtistX, t.ArtistY, t.TitleX, t.TitleY, t.ReelX, t.ReelY, t.TitleWidth)
 }
 
-func (t *TapeConfig) Write(directory string) {
+func (t *TapeConfig) Write(directory string) error {
 	f, err := os.OpenFile(path.Join(directory, "config.txt"), os.O_RDWR|os.O_TRUNC|os.O_CREATE, 0644)
 	if err != nil {
-		panic(err)
+		return fmt.Errorf("cannot open config file: %w", err)
 	}
 
 	if _, err = f.Write([]byte(t.ToString())); err != nil {
-		panic(err)
+		return fmt.Errorf("cannot write config file: %w", err)
 	}
 
 	if err = f.Close(); err != nil {
-		panic(err)
+		return fmt.Errorf("cannot close config file: %w", err)
 	}
+
+	return nil
 }

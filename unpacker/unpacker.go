@@ -451,7 +451,9 @@ func FilesToDirs() error {
 			c.ArtistY = 86
 		}
 
-		c.Write(path.Join("res/tape", string(tapeName)))
+		if err = c.Write(path.Join("res/tape", string(tapeName))); err != nil {
+			return err
+		}
 	}
 
 	return nil
