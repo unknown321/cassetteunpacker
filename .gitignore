@@ -1,0 +1,9 @@
+*.UPG
+cassetteunpacker*
+vendor
+.idea
+*.swp
+*.ext2
+*.apk
+res
+1
