@@ -438,8 +438,7 @@ func FilesToDirs() error {
 			c.TitleWidth = 480 - 72
 			c.ReelX = 134.6
 			c.ReelY = 160
-		case "ucx":
-		case "ucx_s":
+		case "ucx", "ucx_s":
 			c.TitleX = 87
 			c.TitleY = 83
 			c.ArtistX = 87
