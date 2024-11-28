@@ -418,9 +418,9 @@ func FilesToDirs() error {
 		c := tapeconfig.TapeConfig{
 			Reel:       "other",
 			ArtistX:    83,
-			ArtistY:    82,
+			ArtistY:    77,
 			TitleX:     83,
-			TitleY:     117,
+			TitleY:     112,
 			ReelX:      134,
 			ReelY:      160,
 			TitleWidth: 600,
@@ -432,7 +432,7 @@ func FilesToDirs() error {
 		case "metal_master":
 			c.Reel = "metal_master"
 			c.TitleX = 72
-			c.TitleY = 78
+			c.TitleY = 73
 			c.ArtistX = -1
 			c.ArtistY = -1
 			c.TitleWidth = 480 - 72
@@ -440,14 +440,14 @@ func FilesToDirs() error {
 			c.ReelY = 160
 		case "ucx", "ucx_s":
 			c.TitleX = 87
-			c.TitleY = 83
+			c.TitleY = 78
 			c.ArtistX = 87
-			c.ArtistY = 115
+			c.ArtistY = 110
 		case "metal":
 			c.TitleX = 121
-			c.TitleY = 50
+			c.TitleY = 45
 			c.ArtistX = 121
-			c.ArtistY = 86
+			c.ArtistY = 81
 		}
 
 		if err = c.Write(path.Join("res/tape", string(tapeName))); err != nil {
