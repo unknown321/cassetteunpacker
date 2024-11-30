@@ -25,6 +25,14 @@ $(NAME): update_metadata.proto metadata/update_metadata.pb.go
 		-trimpath \
 		-o $(NAME)
 
+IMAGE ?= nw-crosstool
+docker: update_metadata.proto metadata/update_metadata.pb.go
+	docker run -it --rm -v `pwd`:`pwd` -w `pwd` $(IMAGE) \
+		CGO_ENABLED=0 GOOS=$(GOOS) GOARCH=$(GOARCH) GOCACHE=/tmp go build -a \
+		-ldflags "-w -s" \
+		-trimpath \
+		-o $(NAME)
+
 build: $(NAME)
 
 all: build
@@ -36,5 +44,5 @@ veryclean: clean
 	rm -rf system.ext2 HighResMediaPlayerApp.apk res update_metadata.proto metadata/update_metadata.pb.go
 
 
-.PHONY: test
+.PHONY: test docker
 .DEFAULT_GOAL := all
