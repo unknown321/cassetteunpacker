@@ -28,7 +28,7 @@ $(NAME): update_metadata.proto metadata/update_metadata.pb.go
 IMAGE ?= nw-crosstool
 docker: update_metadata.proto metadata/update_metadata.pb.go
 	docker run -it --rm -v `pwd`:`pwd` -w `pwd` $(IMAGE) \
-		CGO_ENABLED=0 GOOS=$(GOOS) GOARCH=$(GOARCH) GOCACHE=/tmp go build -a \
+		CGO_ENABLED=0 GOOS=$(GOOS) GOARCH=$(GOARCH) GOCACHE=/tmp GOMODCACHE=/tmp go build -a \
 		-ldflags "-w -s" \
 		-trimpath \
 		-o $(NAME)
