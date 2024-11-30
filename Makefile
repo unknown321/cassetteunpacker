@@ -43,6 +43,9 @@ clean:
 veryclean: clean
 	rm -rf system.ext2 HighResMediaPlayerApp.apk res update_metadata.proto metadata/update_metadata.pb.go
 
+run:
+	./$(NAME)
+
 
 .PHONY: test docker
 .DEFAULT_GOAL := all
