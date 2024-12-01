@@ -15,6 +15,7 @@ type TapeConfig struct {
 	ReelX      float32
 	ReelY      float32
 	TitleWidth float32
+	TextColor  string
 }
 
 func (t *TapeConfig) ToString() string {
@@ -26,8 +27,9 @@ titley: %.1f
 reelx: %.1f
 reely: %.1f
 titlewidth: %.1f
+textcolor: %s
 `
-	return fmt.Sprintf(format, t.Reel, t.ArtistX, t.ArtistY, t.TitleX, t.TitleY, t.ReelX, t.ReelY, t.TitleWidth)
+	return fmt.Sprintf(format, t.Reel, t.ArtistX, t.ArtistY, t.TitleX, t.TitleY, t.ReelX, t.ReelY, t.TitleWidth, t.TextColor)
 }
 
 func (t *TapeConfig) Write(directory string) error {

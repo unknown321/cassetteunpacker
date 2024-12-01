@@ -424,6 +424,7 @@ func FilesToDirs() error {
 			ReelX:      134,
 			ReelY:      160,
 			TitleWidth: 600,
+			TextColor:  "#000000",
 		}
 
 		switch string(tapeName) {
