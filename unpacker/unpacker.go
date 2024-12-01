@@ -349,7 +349,7 @@ func PrepareCassette(filename string) error {
 		return fmt.Errorf("cannot open file after preparing: %w", err)
 	}
 
-	if err = jpeg.Encode(out, dstRotated, &jpeg.Options{Quality: 100}); err != nil {
+	if err = jpeg.Encode(out, dstRotated, &jpeg.Options{Quality: 90}); err != nil {
 		return fmt.Errorf("cannot encode jpeg: %w", err)
 	}
 
